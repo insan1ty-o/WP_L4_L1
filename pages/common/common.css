@@ -1,0 +1,44 @@
+body {
+    margin: 0vh;
+    background-image: url(../../resources/index/pattern.png);
+    height: 97vh;
+    opacity: 0.95;
+    background-color: grey;
+}
+
+.temporary {
+    color: grey;
+    visibility: 100%;
+}
+
+.inputted {
+    display: flex;
+    align-items: start;
+    border-radius: 2vh;
+    border: 0px;
+    height: 30vh;
+}
+
+#linkbar {
+    display: flex;
+    font-size: 3vh;
+    background-color: black;
+    opacity: 1;
+    color: white;
+    height: 5vh;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#container {
+    display: flex;
+    margin-top: 4vh;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+p, a, input {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
