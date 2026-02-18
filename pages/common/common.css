@@ -16,7 +16,9 @@ body {
     align-items: start;
     border-radius: 2vh;
     border: 0px;
-    height: 30vh;
+    height: 44.5vh;
+    width: 29.7vw;
+    resize: none;
 }
 
 #linkbar {
@@ -37,6 +39,17 @@ body {
     margin-top: 4vh;
     justify-content: space-evenly;
     flex-direction: row;
+}
+
+#error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vh;
+    visibility: hidden;
+    margin-top: 6vh;
+    height: 10vh;
+    background-color: darkred;
 }
 
 p, a, input {

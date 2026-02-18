@@ -16,7 +16,7 @@
         <div id="container">
             <div>
                 <div id="entryfield">
-                    <input class="inputted" placeholder="Your text...">
+                    <textarea cols="30" class="inputted" placeholder="Your text..."></textarea>
                 </div>
                 <div id="key">
                     <input placeholder="Insert key here...">
@@ -24,8 +24,11 @@
             </div>
             <input id="submit" type="submit" onclick="null">
             <div id="encrypted">
-                <input class="inputted" placeholder="Your text...">
+                <textarea cols="30" readonly="true" class="inputted" placeholder="Ciphered text here..."></textarea>
             </div>
         </div> 
+        <div id="error">
+            <p>There was an error with your input. Try retyping the key, then resubmit.</p>
+        </div>
     </body>
 </html>
