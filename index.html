@@ -3,32 +3,36 @@
 <!-- Developing a cipher converter website-->
 <!DOCTYPE html>
 <html>
-    <header>
+    <head>
         <title>Vigenere Cipher Encoder</title>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="pages/common/common.css">
-    </header>
+        <link rel="icon" href="resources/icon.png">
+    </head>
     <body>
         <div id="linkbar">
-            <p>Vigenere Cipher Encoder</p>
+            <p>Vigenere Cipher <p id="labels">Encoder/Decoder</p></p>
             <a href="pages/sdp/U4_Lab1_SDP.html">SDP</a>
         </div>        
         <div id="container">
             <div>
-                <div id="entryfield">
-                    <textarea cols="30" class="inputted" placeholder="Your text..."></textarea>
-                </div>
-                <div id="key">
-                    <input placeholder="Insert key here...">
-                </div>
+                <form action="index.html" id="text">
+                    <div id="entryfield">
+                        <textarea name="text" class="inputted" placeholder="Your text here..."></textarea>
+                    </div>
+                    <div id="keyfield">
+                        <textarea name="inputkey" id="encodekey" placeholder="Insert key here..."></textarea>
+                    </div>
+                </form>
             </div>
-            <input id="submit" type="submit" onclick="null">
+            <button name="button" id="submitstyle" type="submit" onclick="encode()">Submit</button>
             <div id="encrypted">
-                <textarea cols="30" readonly="true" class="inputted" placeholder="Ciphered text here..."></textarea>
+                <textarea readonly="true" class="inputted" placeholder="Ciphered text here..."></textarea>
             </div>
         </div> 
-        <div id="error">
+        <div id="warning">
             <p>There was an error with your input. Try retyping the key, then resubmit.</p>
         </div>
+    <script src="index.js"></script>
     </body>
 </html>

@@ -6,17 +6,33 @@
     width: 30vw;
 }
 
-#key {
+#keyfield {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     margin-top: 20px;
 }
 
-#submit {
+#encodekey {
+    border: 3px solid black;
+    border-radius: 1vh;
+    resize: none;
+}
+
+#submitstyle {
     display: flex;
     align-self: center;
+    align-items: center;
+    justify-content: center;
     border-radius: 2vh; 
     height: 50px;
     width: 125px;
 }
+
+#submitstyle:hover {
+    background-color: darkgray;
+}
+
 
 #encrypted {
     background-color: white;
@@ -24,4 +40,10 @@
     border-radius: 2vh;
     height: 45vh;
     width: 30vw;
+}
+
+#labels {
+    position: relative;
+    right: 23.2vw;
+    color: red;
 }
