@@ -19,12 +19,18 @@
     resize: none;
 }
 
+#submitters {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
 #submitstyle {
     display: flex;
-    align-self: center;
     align-items: center;
     justify-content: center;
     border-radius: 2vh; 
+    margin-bottom: 10vh;
     height: 50px;
     width: 125px;
 }
