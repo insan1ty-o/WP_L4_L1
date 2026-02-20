@@ -1,4 +1,3 @@
-/*var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";*/
 var codetable = [['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
                  ['B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','A'],
                  ['C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','A','B'],
@@ -29,10 +28,11 @@ var codetable = [['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 
 function encode() {
     let safe = true
-    const recieving = document.getElementsByClassName("inputted")[0];
-    const codekey = document.getElementById("encodekey");
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const recieving = document.getElementsByClassName("inputted")[0].value.toUpperCase();
+    const codekey = document.getElementById("encodekey").value.toUpperCase();
     const error = document.getElementById("warning");
-    if (codekey.value == "") {
+    if (codekey == "") {
         error.style.visibility = "visible";
         safe = false;
     } else {
@@ -41,40 +41,19 @@ function encode() {
     }
     /*https://pages.mtu.edu/~shene/NSF-4/Tutorial/VIG/Vig-Base.html*/
     if (safe) {
-        /*encoded.value = recieving.value;*/
-        let ciphered = "";
-        let keyind = 0;
-        for (let text=0;text<recieving.value.length;text++) {
-            if (recieving.value.charCodeAt(text) > 31 && recieving.value.charCodeAt(text) < 65 || recieving.value.charCodeAt(text) > 90 && recieving.value.charCodeAt(text) < 97 || recieving.value.charCodeAt(text) > 122 && recieving.value.charCodeAt(text) < 127) {
-                ciphered += recieving.value[text];
+        var ciphered = "";
+        var keyind = 0;
+        for (let text=0;text<recieving.length;text++) {
+            if (recieving.charCodeAt(text) > 31 && recieving.charCodeAt(text) < 65 || recieving.charCodeAt(text) > 89 && recieving.charCodeAt(text) < 128) {
+                ciphered += recieving[text];
             } else {
-                let col = 0;
-                let row = 0;
-                let keyrow = 0;
-                let rowind = 0;
-                let starting = true;
-                while (codetable[0][col] != recieving.value[text].toUpperCase()) {
-                    console.log(recieving.value[text])
-                    console.log("find column")
-                    col += 1;
-                }
-                
-                find = 0;
-                while (codetable[keyrow][0] != codekey.value[keyind].toUpperCase()) {
-                    console.log("find (key)row")
-                    keyrow+= 1;
-                }
-
-                while (codetable[row][col] != codetable[keyrow][rowind] && starting) {
-                    console.log("function")
-                    if (codetable[row][0] != codetable[keyrow][0]) {
-                        row += 1;
-                    }
-                    rowind += 1;
-                    starting = false;
-                }
-                ciphered += codetable[keyrow][rowind];
-                if (keyind = 2){
+                const textindex = recieving.charCodeAt(text) - 25
+                const keyindex = codekey.charCodeAt(keyind) - 25
+                console.log("text", textindex)
+                console.log("key", keyindex)
+                cipheredletter = alphabet[keyindex+textindex];
+                console.log("letter",cipheredletter)
+                if (keyind = 2) {
                     keyind = 0;
                 } else {
                     keyind += 1;
@@ -83,5 +62,6 @@ function encode() {
         }
         let encoded = document.getElementsByClassName("inputted")[1];
         encoded.value = ciphered;
+        
     }
 };
