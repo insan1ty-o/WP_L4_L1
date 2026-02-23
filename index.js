@@ -47,12 +47,13 @@ function encode() {
             if (recieving.charCodeAt(text) > 31 && recieving.charCodeAt(text) < 65 || recieving.charCodeAt(text) > 89 && recieving.charCodeAt(text) < 128) {
                 ciphered += recieving[text];
             } else {
-                const textindex = recieving.charCodeAt(text) - 25
-                const keyindex = codekey.charCodeAt(keyind) - 25
-                console.log("text", textindex)
-                console.log("key", keyindex)
-                cipheredletter = alphabet[keyindex+textindex];
+                const col = recieving.charCodeAt(text) - 65
+                const row = codekey.charCodeAt(keyind) - 65 
+                console.log("col", col)
+                console.log("row", row)
+                cipheredletter = codetable[row][col]
                 console.log("letter",cipheredletter)
+                ciphered += codetable[row][col]
                 if (keyind = 2) {
                     keyind = 0;
                 } else {
