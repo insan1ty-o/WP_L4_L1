@@ -28,7 +28,6 @@ var codetable = [['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 
 function encode() {
     let safe = true
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const recieving = document.getElementsByClassName("inputted")[0].value.toUpperCase();
     const codekey = document.getElementById("encodekey").value.toUpperCase();
     const error = document.getElementById("warning");
@@ -39,7 +38,6 @@ function encode() {
         error.style.visibility = "hidden";
         safe = true;
     }
-    /*https://pages.mtu.edu/~shene/NSF-4/Tutorial/VIG/Vig-Base.html*/
     if (safe) {
         var ciphered = "";
         var keyind = 0;
@@ -49,10 +47,7 @@ function encode() {
             } else {
                 const col = recieving.charCodeAt(text) - 65
                 const row = codekey.charCodeAt(keyind) - 65 
-                console.log("col", col)
-                console.log("row", row)
                 cipheredletter = codetable[row][col]
-                console.log("letter",cipheredletter)
                 ciphered += codetable[row][col]
                 if (keyind = 2) {
                     keyind = 0;
@@ -66,3 +61,36 @@ function encode() {
         
     }
 };
+
+function decode() {
+    let safe = true
+    const recieving = document.getElementsByClassName("inputted")[0].value.toUpperCase();
+    const codekey = document.getElementById("encodekey").value.toUpperCase();
+    const error = document.getElementById("warning");
+    if (codekey == "") {
+        error.style.visibility = "visible";
+        safe = false;
+    } else {
+        error.style.visibility = "hidden";
+        safe = true;
+    }
+    if (safe) {
+        var ciphered = "";
+        var keyind = 0;
+        for (let text=0;text<recieving.length;text++) {
+            if (recieving.charCodeAt(text) > 31 && recieving.charCodeAt(text) < 65 || recieving.charCodeAt(text) > 89 && recieving.charCodeAt(text) < 128) {
+                ciphered += recieving[text];
+            } else {
+                const row = codetable[codekey.charCodeAt(keyind)-65];
+                for (i=0;i<row.length;i++) {
+                    if (row[i] == recieving[text]) {
+                        ciphered += codetable[0][i];
+                    }
+                }
+            }
+        }
+        let encoded = document.getElementsByClassName("inputted")[1];
+        encoded.value = ciphered;
+        
+    }
+}
